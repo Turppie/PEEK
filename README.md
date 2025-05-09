@@ -58,27 +58,27 @@ Router>ENA
 
 Router#configure ter
 
-Router(config)#interface g0/0/0
+Router(config)#interface g0/0/1
 
 Router(config-if)#no shutdown      //Para levantar el router
 
 Router(config-if)#exit
 
-Router(config)#interface g0/0/0.10      //Cambiar el número de acuerdo al área correspondiente
+Router(config)#interface g0/0/1.10      //Cambiar el número de acuerdo al área correspondiente
 
-Router(config-subif)#interface g0/0/0.20
+Router(config-subif)#interface g0/0/1.20
 
-Router(config-subif)#interface g0/0/0.30
+Router(config-subif)#interface g0/0/1.30
 
-Router(config-subif)#interface g0/0/0.40
+Router(config-subif)#interface g0/0/1.40
 
-Router(config-subif)#interface g0/0/0.50
+Router(config-subif)#interface g0/0/1.50
 
-Router(config-subif)#interface g0/0/0.60
+Router(config-subif)#interface g0/0/1.60
 
 Router(config-subif)#exit
 
-Router(config)#interface g0/0/0.10      //Aquí ya comienza la encapsulación para que cada subinterface se conecte a cada vlan
+Router(config)#interface g0/0/1.10      //Aquí ya comienza la encapsulación para que cada subinterface se conecte a cada vlan
 
 Router(config-subif)#encapsulation dot1Q 10      //Cambiar el número de acuerdo al área correspondiente
 
@@ -157,7 +157,7 @@ Router(config)#access-list 101 deny ip 130.10.0.160 0.0.0.31 130.10.0.0 0.0.0.63
 
 Router(config)#access-list 101 permit ip any any      //Permitir el resto (como respuestas, navegación, etc.)
 
-Router(config)#interface g0/0/0.10      //Cambiar el número de acuerdo al área correspondiente
+Router(config)#interface g0/0/1.10      //Cambiar el número de acuerdo al área correspondiente
 
 Router(config-if)#ip access-group 101 in
 
@@ -232,7 +232,7 @@ Router(config)#access-list 101 deny ip 130.10.1.160 0.0.0.31 130.10.1.0 0.0.0.63
 
 Router(config)#access-list 101 permit ip any any      //Permitir el resto (como respuestas, navegación, etc.)
 
-Router(config)#interface g0/0/0.10      //Cambiar el número de acuerdo al área correspondiente
+Router(config)#interface g0/0/1.10      //Cambiar el número de acuerdo al área correspondiente
 
 Router(config-if)#ip access-group 101 in
 
@@ -307,7 +307,7 @@ Router(config)#access-list 101 deny ip 130.10.2.160 0.0.0.31 130.10.2.0 0.0.0.63
 
 Router(config)#access-list 101 permit ip any any      //Permitir el resto (como respuestas, navegación, etc.)
 
-Router(config)#interface g0/0/0.10      //Cambiar el número de acuerdo al área correspondiente
+Router(config)#interface g0/0/1.10      //Cambiar el número de acuerdo al área correspondiente
 
 Router(config-if)#ip access-group 101 in
 
