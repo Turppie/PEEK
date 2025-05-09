@@ -95,55 +95,71 @@ Router>ENA
 
 Router#configure ter
 
-Router(config)#access-list 100 permit ip 130.10.0.0 0.0.0.63 any      //Administración puede comunicarse con todos ✅
+Router(config)#access-list 101 deny ip 130.10.0.0 0.0.0.63 130.10.0.80 0.0.0.15      //Administración -> Marketing ❌
 
-Router(config)#access-list 100 permit ip any 130.10.0.0 0.0.0.63      //Todos pueden comunicarse con Administración ✅
+Router(config)#access-list 101 deny ip 130.10.0.0 0.0.0.63 130.10.0.96 0.0.0.15      //Administración -> Ventas ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.64 0.0.0.15 130.10.0.80 0.0.0.15      //Sistemas -> Marketing ❌
+Router(config)#access-list 101 deny ip 130.10.0.0 0.0.0.63 130.10.0.128 0.0.0.31      //Administración -> Finanzas ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.64 0.0.0.15 130.10.0.96 0.0.0.15      //Sistemas -> Ventas ❌
+Router(config)#access-list 101 deny ip 130.10.0.0 0.0.0.63 130.10.0.160 0.0.0.31      //Administración -> Logística ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.64 0.0.0.15 130.10.0.128 0.0.0.31      //Sistemas -> Finanzas ❌
+Router(config)#access-list 101 deny ip 130.10.0.0 0.0.0.63 130.10.0.64 0.0.0.15      //Administración -> Sistemas ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.64 0.0.0.15 130.10.0.160 0.0.0.31      //Sistemas -> Logística ❌
+Router(config)#access-list 101 deny ip 130.10.0.64 0.0.0.15 130.10.0.80 0.0.0.15      //Sistemas -> Marketing ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.80 0.0.0.15 130.10.0.64 0.0.0.15      //Marketing -> Sistemas ❌
+Router(config)#access-list 101 deny ip 130.10.0.64 0.0.0.15 130.10.0.96 0.0.0.15      //Sistemas -> Ventas ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.80 0.0.0.15 130.10.0.96 0.0.0.15      //Marketing -> Ventas ❌
+Router(config)#access-list 101 deny ip 130.10.0.64 0.0.0.15 130.10.0.128 0.0.0.31      //Sistemas -> Finanzas ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.80 0.0.0.15 130.10.0.128 0.0.0.31      //Marketing -> Finanzas ❌
+Router(config)#access-list 101 deny ip 130.10.0.64 0.0.0.15 130.10.0.160 0.0.0.31      //Sistemas -> Logística ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.80 0.0.0.15 130.10.0.160 0.0.0.31      //Marketing -> Logística ❌
+Router(config)#access-list 101 deny ip 130.10.0.64 0.0.0.15 130.10.0.0 0.0.0.63      //Sistemas -> Administración ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.96 0.0.0.15 130.10.0.64 0.0.0.15      //Ventas -> Sistemas ❌
+Router(config)#access-list 101 deny ip 130.10.0.80 0.0.0.15 130.10.0.64 0.0.0.15      //Marketing -> Sistemas ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.96 0.0.0.15 130.10.0.80 0.0.0.15      //Ventas -> Marketing ❌
+Router(config)#access-list 101 deny ip 130.10.0.80 0.0.0.15 130.10.0.96 0.0.0.15      //Marketing -> Ventas ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.96 0.0.0.15 130.10.0.128 0.0.0.31      //Ventas -> Finanzas ❌
+Router(config)#access-list 101 deny ip 130.10.0.80 0.0.0.15 130.10.0.128 0.0.0.31      //Marketing -> Finanzas ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.96 0.0.0.15 130.10.0.160 0.0.0.31      //Ventas -> Logística ❌
+Router(config)#access-list 101 deny ip 130.10.0.80 0.0.0.15 130.10.0.160 0.0.0.31      //Marketing -> Logística ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.128 0.0.0.31 130.10.0.64 0.0.0.15      //Finanzas -> Sistemas ❌
+Router(config)#access-list 101 deny ip 130.10.0.80 0.0.0.15 130.10.0.0 0.0.0.63      //Marketing -> Administración ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.128 0.0.0.31 130.10.0.80 0.0.0.15      //Finanzas -> Marketing ❌
+Router(config)#access-list 101 deny ip 130.10.0.96 0.0.0.15 130.10.0.64 0.0.0.15      //Ventas -> Sistemas ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.128 0.0.0.31 130.10.0.96 0.0.0.15      //Finanzas -> Ventas ❌
+Router(config)#access-list 101 deny ip 130.10.0.96 0.0.0.15 130.10.0.80 0.0.0.15      //Ventas -> Marketing ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.128 0.0.0.31 130.10.0.160 0.0.0.31      //Finanzas -> Logística ❌
+Router(config)#access-list 101 deny ip 130.10.0.96 0.0.0.15 130.10.0.128 0.0.0.31      //Ventas -> Finanzas ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.160 0.0.0.31 130.10.0.64 0.0.0.15      //Logística -> Sistemas ❌
+Router(config)#access-list 101 deny ip 130.10.0.96 0.0.0.15 130.10.0.160 0.0.0.31      //Ventas -> Logística ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.160 0.0.0.31 130.10.0.80 0.0.0.15      //Logística -> Marketing ❌
+Router(config)#access-list 101 deny ip 130.10.0.96 0.0.0.15 130.10.0.0 0.0.0.63      //Ventas -> Administración ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.160 0.0.0.31 130.10.0.96 0.0.0.15      //Logística -> Ventas ❌
+Router(config)#access-list 101 deny ip 130.10.0.128 0.0.0.31 130.10.0.64 0.0.0.15      //Finanzas -> Sistemas ❌
 
-Router(config)#access-list 100 deny ip 130.10.0.160 0.0.0.31 130.10.0.128 0.0.0.31      //Logística -> Finanzas ❌
+Router(config)#access-list 101 deny ip 130.10.0.128 0.0.0.31 130.10.0.80 0.0.0.15      //Finanzas -> Marketing ❌
 
-Router(config)#access-list 100 permit ip any any      //Permitir el resto (como respuestas, navegación, etc.)
+Router(config)#access-list 101 deny ip 130.10.0.128 0.0.0.31 130.10.0.96 0.0.0.15      //Finanzas -> Ventas ❌
+
+Router(config)#access-list 101 deny ip 130.10.0.128 0.0.0.31 130.10.0.160 0.0.0.31      //Finanzas -> Logística ❌
+
+Router(config)#access-list 101 deny ip 130.10.0.128 0.0.0.31 130.10.0.0 0.0.0.63      //Finanzas -> Administración ❌
+
+Router(config)#access-list 101 deny ip 130.10.0.160 0.0.0.31 130.10.0.64 0.0.0.15      //Logística -> Sistemas ❌
+
+Router(config)#access-list 101 deny ip 130.10.0.160 0.0.0.31 130.10.0.80 0.0.0.15      //Logística -> Marketing ❌
+
+Router(config)#access-list 101 deny ip 130.10.0.160 0.0.0.31 130.10.0.96 0.0.0.15      //Logística -> Ventas ❌
+
+Router(config)#access-list 101 deny ip 130.10.0.160 0.0.0.31 130.10.0.128 0.0.0.31      //Logística -> Finanzas ❌
+
+Router(config)#access-list 101 deny ip 130.10.0.160 0.0.0.31 130.10.0.0 0.0.0.63      //Logística -> Administración ❌
+
+Router(config)#access-list 101 permit ip any any      //Permitir el resto (como respuestas, navegación, etc.)
 
 Router(config)#interface g0/0/0.10      //Cambiar el número de acuerdo al área correspondiente
 
-Router(config-if)#ip access-group 100 in
+Router(config-if)#ip access-group 101 in
 
 Router(config-if)#exit
 
@@ -154,55 +170,71 @@ Router>ENA
 
 Router#configure ter
 
-Router(config)#access-list 100 permit ip 130.10.1.0 0.0.0.63 any      //Administración puede comunicarse con todos ✅
+Router(config)#access-list 101 deny ip 130.10.1.0 0.0.0.63 130.10.1.80 0.0.0.15      //Administración -> Marketing ❌
 
-Router(config)#access-list 100 permit ip any 130.10.1.0 0.0.0.63      //Todos pueden comunicarse con Administración ✅
+Router(config)#access-list 101 deny ip 130.10.1.0 0.0.0.63 130.10.1.96 0.0.0.15      //Administración -> Ventas ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.64 0.0.0.15 130.10.1.80 0.0.0.15      //Sistemas -> Marketing ❌
+Router(config)#access-list 101 deny ip 130.10.1.0 0.0.0.63 130.10.1.128 0.0.0.31      //Administración -> Finanzas ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.64 0.0.0.15 130.10.1.96 0.0.0.15      //Sistemas -> Ventas ❌
+Router(config)#access-list 101 deny ip 130.10.1.0 0.0.0.63 130.10.1.160 0.0.0.31      //Administración -> Logística ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.64 0.0.0.15 130.10.1.128 0.0.0.31      //Sistemas -> Finanzas ❌
+Router(config)#access-list 101 deny ip 130.10.1.0 0.0.0.63 130.10.1.64 0.0.0.15      //Administración -> Sistemas ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.64 0.0.0.15 130.10.1.160 0.0.0.31      //Sistemas -> Logística ❌
+Router(config)#access-list 101 deny ip 130.10.1.64 0.0.0.15 130.10.1.80 0.0.0.15      //Sistemas -> Marketing ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.80 0.0.0.15 130.10.1.64 0.0.0.15      //Marketing -> Sistemas ❌
+Router(config)#access-list 101 deny ip 130.10.1.64 0.0.0.15 130.10.1.96 0.0.0.15      //Sistemas -> Ventas ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.80 0.0.0.15 130.10.1.96 0.0.0.15      //Marketing -> Ventas ❌
+Router(config)#access-list 101 deny ip 130.10.1.64 0.0.0.15 130.10.1.128 0.0.0.31      //Sistemas -> Finanzas ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.80 0.0.0.15 130.10.1.128 0.0.0.31      //Marketing -> Finanzas ❌
+Router(config)#access-list 101 deny ip 130.10.1.64 0.0.0.15 130.10.1.160 0.0.0.31      //Sistemas -> Logística ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.80 0.0.0.15 130.10.1.160 0.0.0.31      //Marketing -> Logística ❌
+Router(config)#access-list 101 deny ip 130.10.1.64 0.0.0.15 130.10.1.0 0.0.0.63      //Sistemas -> Administración ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.96 0.0.0.15 130.10.1.64 0.0.0.15      //Ventas -> Sistemas ❌
+Router(config)#access-list 101 deny ip 130.10.1.80 0.0.0.15 130.10.1.64 0.0.0.15      //Marketing -> Sistemas ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.96 0.0.0.15 130.10.1.80 0.0.0.15      //Ventas -> Marketing ❌
+Router(config)#access-list 101 deny ip 130.10.1.80 0.0.0.15 130.10.1.96 0.0.0.15      //Marketing -> Ventas ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.96 0.0.0.15 130.10.1.128 0.0.0.31      //Ventas -> Finanzas ❌
+Router(config)#access-list 101 deny ip 130.10.1.80 0.0.0.15 130.10.1.128 0.0.0.31      //Marketing -> Finanzas ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.96 0.0.0.15 130.10.1.160 0.0.0.31      //Ventas -> Logística ❌
+Router(config)#access-list 101 deny ip 130.10.1.80 0.0.0.15 130.10.1.160 0.0.0.31      //Marketing -> Logística ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.128 0.0.0.31 130.10.1.64 0.0.0.15      //Finanzas -> Sistemas ❌
+Router(config)#access-list 101 deny ip 130.10.1.80 0.0.0.15 130.10.1.0 0.0.0.63      //Marketing -> Administración ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.128 0.0.0.31 130.10.1.80 0.0.0.15      //Finanzas -> Marketing ❌
+Router(config)#access-list 101 deny ip 130.10.1.96 0.0.0.15 130.10.1.64 0.0.0.15      //Ventas -> Sistemas ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.128 0.0.0.31 130.10.1.96 0.0.0.15      //Finanzas -> Ventas ❌
+Router(config)#access-list 101 deny ip 130.10.1.96 0.0.0.15 130.10.1.80 0.0.0.15      //Ventas -> Marketing ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.128 0.0.0.31 130.10.1.160 0.0.0.31      //Finanzas -> Logística ❌
+Router(config)#access-list 101 deny ip 130.10.1.96 0.0.0.15 130.10.1.128 0.0.0.31      //Ventas -> Finanzas ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.160 0.0.0.31 130.10.1.64 0.0.0.15      //Logística -> Sistemas ❌
+Router(config)#access-list 101 deny ip 130.10.1.96 0.0.0.15 130.10.1.160 0.0.0.31      //Ventas -> Logística ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.160 0.0.0.31 130.10.1.80 0.0.0.15      //Logística -> Marketing ❌
+Router(config)#access-list 101 deny ip 130.10.1.96 0.0.0.15 130.10.1.0 0.0.0.63      //Ventas -> Administración ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.160 0.0.0.31 130.10.1.96 0.0.0.15      //Logística -> Ventas ❌
+Router(config)#access-list 101 deny ip 130.10.1.128 0.0.0.31 130.10.1.64 0.0.0.15      //Finanzas -> Sistemas ❌
 
-Router(config)#access-list 100 deny ip 130.10.1.160 0.0.0.31 130.10.1.128 0.0.0.31      //Logística -> Finanzas ❌
+Router(config)#access-list 101 deny ip 130.10.1.128 0.0.0.31 130.10.1.80 0.0.0.15      //Finanzas -> Marketing ❌
 
-Router(config)#access-list 100 permit ip any any      //Permitir el resto (como respuestas, navegación, etc.)
+Router(config)#access-list 101 deny ip 130.10.1.128 0.0.0.31 130.10.1.96 0.0.0.15      //Finanzas -> Ventas ❌
+
+Router(config)#access-list 101 deny ip 130.10.1.128 0.0.0.31 130.10.1.160 0.0.0.31      //Finanzas -> Logística ❌
+
+Router(config)#access-list 101 deny ip 130.10.1.128 0.0.0.31 130.10.1.0 0.0.0.63      //Finanzas -> Administración ❌
+
+Router(config)#access-list 101 deny ip 130.10.1.160 0.0.0.31 130.10.1.64 0.0.0.15      //Logística -> Sistemas ❌
+
+Router(config)#access-list 101 deny ip 130.10.1.160 0.0.0.31 130.10.1.80 0.0.0.15      //Logística -> Marketing ❌
+
+Router(config)#access-list 101 deny ip 130.10.1.160 0.0.0.31 130.10.1.96 0.0.0.15      //Logística -> Ventas ❌
+
+Router(config)#access-list 101 deny ip 130.10.1.160 0.0.0.31 130.10.1.128 0.0.0.31      //Logística -> Finanzas ❌
+
+Router(config)#access-list 101 deny ip 130.10.1.160 0.0.0.31 130.10.1.0 0.0.0.63      //Logística -> Administración ❌
+
+Router(config)#access-list 101 permit ip any any      //Permitir el resto (como respuestas, navegación, etc.)
 
 Router(config)#interface g0/0/0.10      //Cambiar el número de acuerdo al área correspondiente
 
-Router(config-if)#ip access-group 100 in
+Router(config-if)#ip access-group 101 in
 
 Router(config-if)#exit
 
@@ -213,55 +245,71 @@ Router>ENA
 
 Router#configure ter
 
-Router(config)#access-list 100 permit ip 130.10.2.0 0.0.0.63 any      //Administración puede comunicarse con todos ✅
+Router(config)#access-list 101 deny ip 130.10.2.0 0.0.0.63 130.10.2.80 0.0.0.15      //Administración -> Marketing ❌
 
-Router(config)#access-list 100 permit ip any 130.10.2.0 0.0.0.63      //Todos pueden comunicarse con Administración ✅
+Router(config)#access-list 101 deny ip 130.10.2.0 0.0.0.63 130.10.2.96 0.0.0.15      //Administración -> Ventas ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.64 0.0.0.15 130.10.2.80 0.0.0.15      //Sistemas -> Marketing ❌
+Router(config)#access-list 101 deny ip 130.10.2.0 0.0.0.63 130.10.2.128 0.0.0.31      //Administración -> Finanzas ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.64 0.0.0.15 130.10.2.96 0.0.0.15      //Sistemas -> Ventas ❌
+Router(config)#access-list 101 deny ip 130.10.2.0 0.0.0.63 130.10.2.160 0.0.0.31      //Administración -> Logística ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.64 0.0.0.15 130.10.2.128 0.0.0.31      //Sistemas -> Finanzas ❌
+Router(config)#access-list 101 deny ip 130.10.2.0 0.0.0.63 130.10.2.64 0.0.0.15      //Administración -> Sistemas ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.64 0.0.0.15 130.10.2.160 0.0.0.31      //Sistemas -> Logística ❌
+Router(config)#access-list 101 deny ip 130.10.2.64 0.0.0.15 130.10.2.80 0.0.0.15      //Sistemas -> Marketing ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.80 0.0.0.15 130.10.2.64 0.0.0.15      //Marketing -> Sistemas ❌
+Router(config)#access-list 101 deny ip 130.10.2.64 0.0.0.15 130.10.2.96 0.0.0.15      //Sistemas -> Ventas ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.80 0.0.0.15 130.10.2.96 0.0.0.15      //Marketing -> Ventas ❌
+Router(config)#access-list 101 deny ip 130.10.2.64 0.0.0.15 130.10.2.128 0.0.0.31      //Sistemas -> Finanzas ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.80 0.0.0.15 130.10.2.128 0.0.0.31      //Marketing -> Finanzas ❌
+Router(config)#access-list 101 deny ip 130.10.2.64 0.0.0.15 130.10.2.160 0.0.0.31      //Sistemas -> Logística ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.80 0.0.0.15 130.10.2.160 0.0.0.31      //Marketing -> Logística ❌
+Router(config)#access-list 101 deny ip 130.10.2.64 0.0.0.15 130.10.2.0 0.0.0.63      //Sistemas -> Administración ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.96 0.0.0.15 130.10.2.64 0.0.0.15      //Ventas -> Sistemas ❌
+Router(config)#access-list 101 deny ip 130.10.2.80 0.0.0.15 130.10.2.64 0.0.0.15      //Marketing -> Sistemas ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.96 0.0.0.15 130.10.2.80 0.0.0.15      //Ventas -> Marketing ❌
+Router(config)#access-list 101 deny ip 130.10.2.80 0.0.0.15 130.10.2.96 0.0.0.15      //Marketing -> Ventas ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.96 0.0.0.15 130.10.2.128 0.0.0.31      //Ventas -> Finanzas ❌
+Router(config)#access-list 101 deny ip 130.10.2.80 0.0.0.15 130.10.2.128 0.0.0.31      //Marketing -> Finanzas ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.96 0.0.0.15 130.10.2.160 0.0.0.31      //Ventas -> Logística ❌
+Router(config)#access-list 101 deny ip 130.10.2.80 0.0.0.15 130.10.2.160 0.0.0.31      //Marketing -> Logística ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.128 0.0.0.31 130.10.2.64 0.0.0.15      //Finanzas -> Sistemas ❌
+Router(config)#access-list 101 deny ip 130.10.2.80 0.0.0.15 130.10.2.0 0.0.0.63      //Marketing -> Administración ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.128 0.0.0.31 130.10.2.80 0.0.0.15      //Finanzas -> Marketing ❌
+Router(config)#access-list 101 deny ip 130.10.2.96 0.0.0.15 130.10.2.64 0.0.0.15      //Ventas -> Sistemas ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.128 0.0.0.31 130.10.2.96 0.0.0.15      //Finanzas -> Ventas ❌
+Router(config)#access-list 101 deny ip 130.10.2.96 0.0.0.15 130.10.2.80 0.0.0.15      //Ventas -> Marketing ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.128 0.0.0.31 130.10.2.160 0.0.0.31      //Finanzas -> Logística ❌
+Router(config)#access-list 101 deny ip 130.10.2.96 0.0.0.15 130.10.2.128 0.0.0.31      //Ventas -> Finanzas ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.160 0.0.0.31 130.10.2.64 0.0.0.15      //Logística -> Sistemas ❌
+Router(config)#access-list 101 deny ip 130.10.2.96 0.0.0.15 130.10.2.160 0.0.0.31      //Ventas -> Logística ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.160 0.0.0.31 130.10.2.80 0.0.0.15      //Logística -> Marketing ❌
+Router(config)#access-list 101 deny ip 130.10.2.96 0.0.0.15 130.10.2.0 0.0.0.63      //Ventas -> Administración ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.160 0.0.0.31 130.10.2.96 0.0.0.15      //Logística -> Ventas ❌
+Router(config)#access-list 101 deny ip 130.10.2.128 0.0.0.31 130.10.2.64 0.0.0.15      //Finanzas -> Sistemas ❌
 
-Router(config)#access-list 100 deny ip 130.10.2.160 0.0.0.31 130.10.2.128 0.0.0.31      //Logística -> Finanzas ❌
+Router(config)#access-list 101 deny ip 130.10.2.128 0.0.0.31 130.10.2.80 0.0.0.15      //Finanzas -> Marketing ❌
 
-Router(config)#access-list 100 permit ip any any      //Permitir el resto (como respuestas, navegación, etc.)
+Router(config)#access-list 101 deny ip 130.10.2.128 0.0.0.31 130.10.2.96 0.0.0.15      //Finanzas -> Ventas ❌
+
+Router(config)#access-list 101 deny ip 130.10.2.128 0.0.0.31 130.10.2.160 0.0.0.31      //Finanzas -> Logística ❌
+
+Router(config)#access-list 101 deny ip 130.10.2.128 0.0.0.31 130.10.2.0 0.0.0.63      //Finanzas -> Administración ❌
+
+Router(config)#access-list 101 deny ip 130.10.2.160 0.0.0.31 130.10.2.64 0.0.0.15      //Logística -> Sistemas ❌
+
+Router(config)#access-list 101 deny ip 130.10.2.160 0.0.0.31 130.10.2.80 0.0.0.15      //Logística -> Marketing ❌
+
+Router(config)#access-list 101 deny ip 130.10.2.160 0.0.0.31 130.10.2.96 0.0.0.15      //Logística -> Ventas ❌
+
+Router(config)#access-list 101 deny ip 130.10.2.160 0.0.0.31 130.10.2.128 0.0.0.31      //Logística -> Finanzas ❌
+
+Router(config)#access-list 101 deny ip 130.10.2.160 0.0.0.31 130.10.2.0 0.0.0.63      //Logística -> Administración ❌
+
+Router(config)#access-list 101 permit ip any any      //Permitir el resto (como respuestas, navegación, etc.)
 
 Router(config)#interface g0/0/0.10      //Cambiar el número de acuerdo al área correspondiente
 
-Router(config-if)#ip access-group 100 in
+Router(config-if)#ip access-group 101 in
 
 Router(config-if)#exit
 
