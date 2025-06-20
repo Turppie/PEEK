@@ -77,9 +77,9 @@ interface FastEthernet0/1.80
 ---
 # Visualización recomendada de este MD
 
-Para una mejor experiencia de lectura de este documento en tu equipo:
+Para una mejor experiencia de lectura de este documento:
 
-- **Abre este archivo (`README.md`) en [Visual Studio Code](https://code.visualstudio.com/).**
+- **Abre este archivo (`AccessRouter.md`) en [Visual Studio Code](https://code.visualstudio.com/). o visualízalo desde Github**
 - Instala la extensión gratuita **Markdown Preview Enhanced** desde la Marketplace de VS Code para una visualización optimizada.
 - Alternativamente, puedes usar cualquier visor de archivos `.md` de tu preferencia, como **Typora**, **Obsidian** o previsualizadores web como **StackEdit**.
 
