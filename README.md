@@ -1328,3 +1328,23 @@ exit
 
 
 	show access-lists 105
+
+# COMANDOS PARA CONECTARSE AL SERVIDOR FTP
+
+
+ftp 130.10.132.2 (se puede cambiar por cualquier ip de servidor)
+
+Va a pedir uun username
+
+Usuario:sistemas
+contraseña:sis123
+
+Despues vas ya a poder copiar del server al pc o poner un archivo al server.
+
+put "inserte nombre de archivo con . seguido de su nombre de archivo (txt,png, etc)"
+
+Esto hara que se ponga un archivo del pc al servidor ftp
+
+get  "inserte nombre de archivo con . seguido de su nombre de archivo (txt,png, etc)"
+
+Esto hara que se ponga un archivo del servidor ftp al pc que se hace esa request
